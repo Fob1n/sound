@@ -1,5 +1,6 @@
 #include "sound.h"
 #include <stdio.h>
+#include <math.h>
 
 //Function definition of displayBar()
 /*This function opens the "test.wav" file and read the second part (data)
@@ -8,8 +9,10 @@ of the file, and they should be in S16_LE format, and there should be
 their RAM value and renders this value as a vertical bar on the
 terminal screen*/
 void displayBar(char filename[]){
-	FILE fp*;
+	FILE *fp;
 	short int samples[SAMPLERATE];
+	double dB, sum_200, rms_80[80];
+	int i, j;
 	WAVHeader myhdr;	//Dummy header to skip over reading from file
 	fp = fopen(filename, "r");
 	if(fp == NULL){
@@ -22,11 +25,20 @@ void displayBar(char filename[]){
 	/*All the samples of 1 sec are read to the array samples, we need
 	to run a loop 80 times for 80 bars, and each loop will calculate
 	a RMS value of 200 samples*/
-	for(int i=0; i<80; i++){
-		for(int j=0; j<200; j++){
+	clearScreen();
+	for(i=0; i<80; i++){
+		for(j=0, sum_200=0.0; j<200; j++){
+			sum_200 += samples[j+i*200]*samples[j+i*200];
 		}
-	}
-}
+		rms_80[i] = sqrt(sum_200/200);
+		dB = 20*log10(rms_80[i]);		//In order to display sound value in a screen, we need to use decibel
+#ifdef DEBUG
+		printf("RMS[%d] = %10.4f = %10.4fdB\n", i, rms_80[i], dB);
+#else
+		bar(i,dB);
+#endif
+	}	//For
+}	//Function
 //Function definition of displayWAVheader()
 void displayWAVheader(char filename[]){
 	WAVHeader myhdr;	//An instance of defined struct
@@ -38,7 +50,7 @@ void displayWAVheader(char filename[]){
 	}
 	fread(&myhdr, sizeof(WAVHeader), 1, fp);
 	fclose(fp);
-	printID(myhdr.chunkI D);
+	printID(myhdr.chunkID);
 	printf("Chunk size: %d\n", myhdr.chunkSize);
 	printID(myhdr.format);
 	printID(myhdr.subchunk1ID);

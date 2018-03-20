@@ -1,3 +1,6 @@
+//#define DEBUG
+//Constant definition
+#define SAMPLERATE 16000
 //Header file for processing sound (WAV) file
 //Define the wav header
 typedef struct{
