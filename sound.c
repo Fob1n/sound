@@ -1,3 +1,4 @@
+#include "screen.h"
 #include "sound.h"
 #include <stdio.h>
 #include <math.h>
@@ -25,7 +26,6 @@ void displayBar(char filename[]){
 	/*All the samples of 1 sec are read to the array samples, we need
 	to run a loop 80 times for 80 bars, and each loop will calculate
 	a RMS value of 200 samples*/
-	clearScreen();
 	for(i=0; i<80; i++){
 		for(j=0, sum_200=0.0; j<200; j++){
 			sum_200 += samples[j+i*200]*samples[j+i*200];
@@ -50,7 +50,17 @@ void displayWAVheader(char filename[]){
 	}
 	fread(&myhdr, sizeof(WAVHeader), 1, fp);
 	fclose(fp);
-	printID(myhdr.chunkID);
+	gotoxy(0, 0);
+	setColor(47);setColor(BLACK);
+	printf(" %s  ", filename);
+	setColor(42);setColor(BLACK);
+	printf(" Channel= %d  ",myhdr.numChannels);
+	setColor(46);setColor(BLACK);
+	printf(" S.R.= %d Hz  ",myhdr.sampleRate);
+	setColor(45);setColor(BLACK);
+	printf(" Duration= %ds  ", myhdr.subchunk2Size/myhdr.byteRate);
+	setColor(40);setColor(WHITE);
+/*	printID(myhdr.chunkID);
 	printf("Chunk size: %d\n", myhdr.chunkSize);
 	printID(myhdr.format);
 	printID(myhdr.subchunk1ID);
@@ -63,7 +73,7 @@ void displayWAVheader(char filename[]){
 	printf("Bits per Sample: %d\n", myhdr.bitsPerSample);
 	printID(myhdr.subchunk2ID);
 	printf("Subchunk 2 size: %d\n", myhdr.subchunk2Size);
-}
+*/}
 
 void printID(char id[]){
 	int i;

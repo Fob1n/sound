@@ -20,8 +20,8 @@ void bar(int col, double dB){
 #ifndef	UNICODE
 		printf("%c", '|');
 #else
-		if(i<60/RES)	setColor(GREEN);
-		else if(i<80/RES) setColor(YELLOW);
+		if(i<40/RES)	setColor(GREEN);
+		else if(i<60/RES) setColor(YELLOW);
 		else setColor(RED);
 		printf("%s", BAR);
 #endif
