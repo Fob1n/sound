@@ -23,3 +23,4 @@ typedef struct{
 void displayWAVheader(char filename[]);
 void displayBar(char filename[]);
 void printID(char []);
+

@@ -26,6 +26,7 @@ void bar(int col, double dB){
 		printf("%s", BAR);
 #endif
 	}
+	gotoxy(37, 1);
 }
 void setColor(int color){
 	printf("%c[1;%dm", ESC, color);

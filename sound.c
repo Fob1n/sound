@@ -2,6 +2,7 @@
 #include "sound.h"
 #include <stdio.h>
 #include <math.h>
+#include "comm.h"
 
 //Function definition of displayBar()
 /*This function opens the "test.wav" file and read the second part (data)
@@ -38,6 +39,9 @@ void displayBar(char filename[]){
 		bar(i,dB);
 #endif
 	}	//For
+#ifdef COMM	//Conditional compilation
+	sendToServer(rms_80);
+#endif
 }	//Function
 //Function definition of displayWAVheader()
 void displayWAVheader(char filename[]){
