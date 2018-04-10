@@ -69,8 +69,53 @@ INSTALL LIBCURL:
 
 #--------------------------------INSTALLATION-----------------------------------
 
-get the program from github "git clone", tell them how to run make
 To get the program needed for this, you need to clone it from github.
-Run command "git clone https://github.com/Fob1n/sound.git" in the folder you want
-the program to be. Then check that the files does appear with command "ls", you should see a folder
+Run command "git init" in the folder you want the project to be, to initialize your current folder.
+Run command "git clone https://github.com/Fob1n/sound.git".
+Then check that the files does appear with command "ls", you should see a folder
 named "sound".
+
+To compile the program, type the command "make". The program will print the result in the "sound_log" file.
+
+To clean the directory, run command "make clean", and all object files is erased
+
+
+#--------------------------------OPERATION--------------------------------------
+
+To run the program, run the command "./sound.a" and you will see bars on the terminal screen and an
+information bar at the top of the screen, and it changes every second.
+
+
+#--------------------------------MANIFEST---------------------------------------
+
+
+- comm.c: This file sends information to a file named "sound_log.txt" via the file sound.php, when the program is executed.
+
+- comm.h: Contains function definition for comm.c and other definitions.
+
+- main.c: This file records the audio, and calculates fast dBs plus.
+
+- makefile: This file contains the information about what should happen when you use the make/make clean commands.
+
+- screen.c: This file prepares the terminal screen for displaying the bars, and displays the bars-
+
+- screen.h: Contains function and constant definitions for "screen.h".
+
+- sound.c: This file contains function displayBar(), which opens file "test.wav" and reads the information that should 
+		 create the bars. The file also prints the information bar that shows up while running the program.
+	 
+- sound.h: Contains function and constant definition for "sound.c", plus the wav header.
+
+
+#--------------------------------LICENSE----------------------------------------
+
+
+Copyright Robin Snellman: All rights reserved.
+This project is guided by Dr. Chao Gao.
+
+
+#--------------------------------CONTACT INFORMATION----------------------------
+
+
+Email: e1700709@edu.vamk.fi
+Phone: +358 4476234
