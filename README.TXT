@@ -71,10 +71,10 @@ INSTALL LIBCURL:
 #--------------------------------INSTALLATION-----------------------------------
 
 To get the program needed for this, you need to clone it from github.
-Run command "git init" in the folder you want the project to be, to initialize your current folder.
-Run command "git clone https://github.com/Fob1n/sound.git".
-Then check that the files does appear with command "ls", you should see a folder
-named "sound".
+1. Run command "git init" in the folder you want the project to be, to initialize your current folder.
+2. Run command "git clone https://github.com/Fob1n/sound.git".
+3. Then check that the files does appear with command "ls", you should see a folder
+   named "sound".
 
 To compile the program, type the command "make". The program will print the result in the "sound_log" file.
 
