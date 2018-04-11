@@ -22,16 +22,16 @@ SOUND CARD:
 	a. Run command "lsusb" to see if the USB is mounted
 	   (C-Media Electronics, Inc. Audio Adapter should appear)
 	b. Run command "sudo nano /etc/asound.conf" and type following code:
-	   "pcm.!default {
-	     type plug
-	     slave {
-	       pcm "hw:1,0"
-	     }
-	    }
-	    ctl.!default {
-	     type hw
-	     card 1
-	    } "
+		"pcm.!default {
+			type plug
+			slave {
+				 pcm "hw:1,0"
+			}
+		}
+			ctl.!default {
+				type hw
+				card 1
+			} "
 	c. Use command "nano .asoundrc" in home diractory and type the
 	   same code as in previous step
 3. Run command "alsamixer" to see if USB sound card is the default audio device
@@ -61,7 +61,8 @@ INSTALL LIBCURL:
 
 1. Run command "ls/usr/include/curl" to find out if the folder already exists
 2. Run command "ls/usr/include/arm-linux-gnueabihf/curl"
-(If neither of them exists, proceed with the following steps)
+
+(If neither of the folders exists, proceed with the following steps)
 3. Run command "sudo apt-get update"
 4. Run command "sudo apt-get install libcurl3" to install libcurl3
 5. Run command "sudo apt-get install libcurl4-openssl-dev" to install the development API of libcurl4
@@ -102,7 +103,7 @@ information bar at the top of the screen, and it changes every second.
 - screen.h: Contains function and constant definitions for "screen.h".
 
 - sound.c: This file contains function displayBar(), which opens file "test.wav" and reads the information that should 
-		 create the bars. The file also prints the information bar that shows up while running the program.
+		   create the bars. The file also prints the information bar that shows up while running the program.
 	 
 - sound.h: Contains function and constant definition for "sound.c", plus the wav header.
 
@@ -117,5 +118,5 @@ This project is guided by Dr. Chao Gao.
 #--------------------------------CONTACT INFORMATION----------------------------
 
 
-Email: e1700709@edu.vamk.fi
-Phone: +358 4476234
+Robin Snellman:		Email: e1700709@edu.vamk.fi
+					Phone: +358 4476234

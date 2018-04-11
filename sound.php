@@ -1,3 +1,6 @@
+/*
+ *This php file gets data from comm.c and prints the wanted data into "sound_log.txt"
+*/
 <?php
 $log_file = 'sound_log.txt';
 $data = $_POST['data'];

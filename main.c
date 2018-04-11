@@ -4,6 +4,13 @@
 #include <signal.h>
 #include "sound.h"
 
+/*
+ *Function definition of main()
+ *This function records audio for a second and saves the information into "test.wav"
+  It also displays the information bar.
+ *Input argument: none
+ *Return argument: integer
+*/
 int main(void){
 	int ret;
 	while(1){

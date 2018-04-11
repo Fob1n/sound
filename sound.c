@@ -4,12 +4,18 @@
 #include <math.h>
 #include "comm.h"
 
-//Function definition of displayBar()
-/*This function opens the "test.wav" file and read the second part (data)
-of the file, and they should be in S16_LE format, and there should be
-16000 of them. The function processes every 200 samples and calculate
-their RAM value and renders this value as a vertical bar on the
-terminal screen*/
+
+/*
+ *Function definition of displayBar()
+ *This function opens the "test.wav" file and read the second part (data)
+  of the file, and they should be in S16_LE format, and there should be
+  16000 of them. The function processes every 200 samples and calculate
+  their RAM value and renders this value as a vertical bar on the
+  terminal screen
+ *Input argument:
+ 	char []: Uses the array as data to be read
+ *Return argument: none 
+*/
 void displayBar(char filename[]){
 	FILE *fp;
 	short int samples[SAMPLERATE];
@@ -43,7 +49,17 @@ void displayBar(char filename[]){
 	sendToServer(rms_80);
 #endif
 }	//Function
-//Function definition of displayWAVheader()
+/*
+ *Function definition of displayWAVheader()
+ *This function opens the same folder in read mode and prints filename, channel number,
+  sample rate and dauration os the recording.
+ *Input argument:
+ 	char []: Opens the array of information to use it in the information bar
+ *Return argument: none
+
+ *The function can also show information about the wav file, but that part is commented
+  out, because it is not necessary if you don't want to know more specific
+*/
 void displayWAVheader(char filename[]){
 	WAVHeader myhdr;	//An instance of defined struct
 	FILE *fp;
