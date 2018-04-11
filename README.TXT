@@ -118,5 +118,6 @@ This project is guided by Dr. Chao Gao.
 #--------------------------------CONTACT INFORMATION----------------------------
 
 
-Robin Snellman:		Email: e1700709@edu.vamk.fi
-					Phone: +358 4476234
+Robin Snellman:
+				Email: e1700709@edu.vamk.fi
+				Phone: +358 4476234
